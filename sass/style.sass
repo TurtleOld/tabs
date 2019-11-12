@@ -1,0 +1,52 @@
+* 
+  box-sizing: border-box
+
+
+
+.tabs
+  display: flex
+  width: 700px
+  position: relative
+  margin: 0
+  & > input[type=radio]
+    display: none
+    &:checked + label
+      background: yellow
+    & + label
+      display: block
+      padding: 10px 10px
+      border: 1px solid black
+      margin-left: -1px
+      cursor: pointer
+      &:hover
+        background: yellow
+        
+  &__content    
+    & > div
+      position: absolute
+      top: 39px
+      left: -1px
+      line-height: 1.4em
+      opacity: 0
+      width: 700px
+      height: 230px
+      padding: 20px
+      padding-top: 0
+      font-size: 15px
+      transition: opacity .3s
+      z-index: 0;
+      border: 1px solid black
+      & > button 
+        position: absolute
+        width: 200px
+        height: 30px
+        background: yellow
+        border: 0
+        cursor: pointer
+  
+
+#tab-1:checked ~ .tabs__content > div:nth-of-type(1),
+#tab-2:checked ~ .tabs__content > div:nth-of-type(2),
+#tab-3:checked ~ .tabs__content > div:nth-of-type(3)
+  opacity: 1
+  z-index: 1
